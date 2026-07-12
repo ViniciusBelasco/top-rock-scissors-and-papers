@@ -49,12 +49,12 @@ function playGame( humanChoice, computerChoice) {
     let winner = getWinner(humanChoice.toLowerCase(), computerChoice.toLowerCase());
 
     if (winner === 'draw') {
-        console.log(`Got no winner the game ${winner}`);
+        console.log(`No one win! ${humanChoice} draws ${computerChoice}`);
     } else if (winner === humanChoice) {
-        console.log(`Player wins!`);
+        console.log(`Player wins! ${winner} beats ${computerChoice}`);
         humanScore++;
     } else {
-        console.log(`Computer wins!`);
+        console.log(`Computer wins! ${winner} beats ${humanChoice}`);
         computerScore++;
     }
     
