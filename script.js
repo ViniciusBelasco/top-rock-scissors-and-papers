@@ -41,18 +41,25 @@ function getWinner(choice1, choice2) {
   }
 }
 
-function playGame(humanChoice, computerChoice) {
+function playGame() {
   for (let i = 0; i < 5; i++) {
-    let winner = getWinner(
-      humanChoice.toLowerCase(),
-      computerChoice.toLowerCase(),
-    );
+    humanChoice = getHumanChoice().toLowerCase();
+    computerChoice = getComputerChoice().toLowerCase();
+    let winner = getWinner(humanChoice, computerChoice);
 
-    declareWinner(winner, humanChoice, computerChoice);
+    roundWinner(winner, humanChoice, computerChoice);
+  }
+
+  if (humanScore > computerScore) {
+    console.log("Human player win!");
+  } else if (computerScore > humanScore) {
+    console.log("Computer win!");
+  } else {
+    console.log("Wow, both draw O_O");
   }
 }
 
-function declareWinner(winner, humanChoice, computerChoice) {
+function roundWinner(winner, humanChoice, computerChoice) {
   if (winner === "draw") {
     console.log(`No one win! ${humanChoice} draws ${computerChoice}`);
   } else if (winner === humanChoice) {
@@ -64,4 +71,4 @@ function declareWinner(winner, humanChoice, computerChoice) {
   }
 }
 
-playGame(getHumanChoice(), getComputerChoice());
+playGame();
