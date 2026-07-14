@@ -14,30 +14,14 @@ function getHumanChoice() {
 function getWinner(choice1, choice2) {
   if (choice1 === choice2) {
     return "draw";
-  }
-
-  if (choice1 === "paper") {
-    if (choice2 === "rock") {
-      return choice1;
-    } else {
-      return choice2;
-    }
-  }
-
-  if (choice1 === "scissors") {
-    if (choice2 === "paper") {
-      return choice1;
-    } else {
-      return choice2;
-    }
-  }
-
-  if (choice1 === "rock") {
-    if (choice2 === "scissors") {
-      return choice1;
-    } else {
-      return choice2;
-    }
+  } else if (
+    (choice1 === "paper" && choice2 === "rock") ||
+    (choice1 === "scissors" && choice2 === "paper") ||
+    (choice1 === "rock" && choice2 === "scissors")
+  ) {
+    return choice1;
+  } else {
+    return choice2
   }
 }
 
