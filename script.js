@@ -8,10 +8,6 @@ function getComputerChoice() {
   return aChoices[Math.floor(Math.random() * 3)];
 }
 
-function getHumanChoice() {
-  return prompt('What do you choose? "Rock", "Scissors" or "Paper"');
-}
-
 function getWinner(choice1, choice2) {
   if (choice1 === choice2) {
     return "draw";
@@ -26,9 +22,9 @@ function getWinner(choice1, choice2) {
   }
 }
 
-function playGame() {
+function playGame(event) {
   //for (let i = 0; i < 5; i++) {
-  humanChoice = getHumanChoice().toLowerCase();
+  humanChoice = event.target.textContent.toLowerCase();
   computerChoice = getComputerChoice().toLowerCase();
   let winner = getWinner(humanChoice, computerChoice);
 
