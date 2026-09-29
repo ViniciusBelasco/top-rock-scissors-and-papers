@@ -1,5 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
+const btns = document.querySelectorAll("button")
 
 function getComputerChoice() {
   const aChoices = ["Rock", "Scissors", "Paper"];
@@ -26,13 +27,13 @@ function getWinner(choice1, choice2) {
 }
 
 function playGame() {
-  for (let i = 0; i < 5; i++) {
-    humanChoice = getHumanChoice().toLowerCase();
-    computerChoice = getComputerChoice().toLowerCase();
-    let winner = getWinner(humanChoice, computerChoice);
+  //for (let i = 0; i < 5; i++) {
+  humanChoice = getHumanChoice().toLowerCase();
+  computerChoice = getComputerChoice().toLowerCase();
+  let winner = getWinner(humanChoice, computerChoice);
 
-    roundWinner(winner, humanChoice, computerChoice);
-  }
+  roundWinner(winner, humanChoice, computerChoice);
+  //}
 
   if (humanScore > computerScore) {
     console.log("Human player win!");
@@ -55,4 +56,6 @@ function roundWinner(winner, humanChoice, computerChoice) {
   }
 }
 
-playGame();
+btns.forEach( btn => {
+  btn.addEventListener("click", playGame)
+})
