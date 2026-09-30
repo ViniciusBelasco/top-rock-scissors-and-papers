@@ -23,13 +23,19 @@ function getWinner(choice1, choice2) {
 }
 
 function playGame(event) {
-  //for (let i = 0; i < 5; i++) {
-  humanChoice = event.target.textContent.toLowerCase();
-  computerChoice = getComputerChoice().toLowerCase();
-  let winner = getWinner(humanChoice, computerChoice);
+  
+  const results = document.querySelector(".results");
+  const score = document.querySelector(".score");
+  const para = document.createElement("p");
 
-  roundWinner(winner, humanChoice, computerChoice);
-  //}
+  let humanChoice = event.target.textContent.toLowerCase();
+  let computerChoice = getComputerChoice().toLowerCase();
+
+  let winner = getWinner(humanChoice, computerChoice);
+  
+  para.textContent = roundWinner(winner, humanChoice, computerChoice);
+
+  score.textContent = `Player Score: ${humanScore} X Computer Score: ${computerScore}`
 
   if (humanScore > computerScore) {
     console.log("Human player win!");
@@ -38,17 +44,19 @@ function playGame(event) {
   } else {
     console.log("Wow, both draw O_O");
   }
+  
+  results.appendChild(para)
 }
 
 function roundWinner(winner, humanChoice, computerChoice) {
   if (winner === "draw") {
-    console.log(`No one win! ${humanChoice} draws ${computerChoice}`);
+    return `No one win! ${humanChoice} draws ${computerChoice}`;
   } else if (winner === humanChoice) {
-    console.log(`Player wins! ${winner} beats ${computerChoice}`);
     humanScore++;
+    return `Player wins! ${winner} beats ${computerChoice}`;
   } else {
-    console.log(`Computer wins! ${winner} beats ${humanChoice}`);
     computerScore++;
+    return `Computer wins! ${winner} beats ${humanChoice}`;
   }
 }
 
