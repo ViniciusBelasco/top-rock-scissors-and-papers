@@ -47,6 +47,10 @@ function playGame(event) {
     finalResult.textContent = `Computer win!`;
   }
   
+  if ( humanScore > 4 || computerScore > 4 ) {
+    btns.forEach( btn => btn.disabled = true );
+  }
+  
   results.appendChild(finalResult);
 
 }
