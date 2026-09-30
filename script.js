@@ -42,16 +42,16 @@ function playGame(event) {
   const finalResult = document.createElement("p");
 
   if (humanScore > 4) {
-    finalResult.textContent = `Human player win!`;
+    finalResult.textContent = `Player win!`;
   } else if (computerScore > 4) {
     finalResult.textContent = `Computer win!`;
   }
   
+  results.appendChild(finalResult);
+  
   if ( humanScore > 4 || computerScore > 4 ) {
     btns.forEach( btn => btn.disabled = true );
   }
-  
-  results.appendChild(finalResult);
 
 }
 
